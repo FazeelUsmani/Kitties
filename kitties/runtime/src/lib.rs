@@ -267,7 +267,7 @@ impl pallet_mykitties::Config for Runtime {
 	type Event = Event;
 	type Currency = Balances;
 	type KittyRandomness = RandomnessCollectiveFlip;
-	type MaxKittiesOwned = frame_support::pallet_prelude::ConstU32<100>;
+    type MaxKittiesOwned = frame_support::pallet_prelude::ConstU32<100>;
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
@@ -285,8 +285,9 @@ construct_runtime!(
 		Balances: pallet_balances,
 		TransactionPayment: pallet_transaction_payment,
 		Sudo: pallet_sudo,
-		// Include the custom logic from the pallet-mykitties in the runtime.
-		SubstrateKitties: pallet_mykitties,
+		// Include the custom logic from the pallet-template in the runtime.
+		SubstrateKitties: pallet_mykitties
+		// ::{Pallet, Call, Storage, Event<T>},	
 	}
 );
 

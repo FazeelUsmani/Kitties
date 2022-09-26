@@ -105,7 +105,6 @@ try-runtime = [
 	"pallet-grandpa/try-runtime",
 	"pallet-randomness-collective-flip/try-runtime",
 	"pallet-sudo/try-runtime",
-	"pallet-mykitties/try-runtime",
 	"pallet-timestamp/try-runtime",
 	"pallet-transaction-payment/try-runtime",
 ]
