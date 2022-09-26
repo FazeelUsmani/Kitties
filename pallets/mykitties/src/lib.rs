@@ -5,17 +5,16 @@ pub use pallet::*;
 #[frame_support::pallet]
 pub mod pallet {
 	use frame_support::{
-		dispatch::{DispatchResult, DispatchResultWithPostInfo},
+		dispatch::{DispatchResult},
 		pallet_prelude::*,
-		sp_runtime::traits::{Hash, Zero},
+		sp_runtime::traits::{Hash},
 		traits::{Currency, ExistenceRequirement, Randomness},
-		transactional,
 	};
 	use frame_system::pallet_prelude::*;
 	use sp_io::hashing::blake2_128;
 
-	#[cfg(feature = "std")]
-	use serde::{Deserialize, Serialize};
+	// #[cfg(feature = "std")]
+	// use serde::{Deserialize, Serialize};
 
 	type AccountOf<T> = <T as frame_system::Config>::AccountId;
 	type BalanceOf<T> =
@@ -145,7 +144,7 @@ pub mod pallet {
 		#[pallet::weight(100)]
 		pub fn create_kitty(origin: OriginFor<T>) -> DispatchResult {
 			let sender = ensure_signed(origin)?;
-			let kitty_id = Self::mint(&sender, None, None);
+			let _kitty_id = Self::mint(&sender, None, None);
 			Ok(())
 		}
 
@@ -336,7 +335,7 @@ pub mod pallet {
 				Err(())
 			})
 			.map_err(|_| <Error<T>>::KittyNotExist)?;
-			let kitty_owner = to.clone();
+			let _kitty_owner = to.clone();
 			kitty.price = None;
 
 			<Kitties<T>>::insert(kitty_id, kitty);
